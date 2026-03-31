@@ -16,16 +16,6 @@
     --gray:     #E0E0E0;
     --text:     #1A1A1A;
     --text-lt:  #666666;
-    --text-red: #E8002D;
-
-    /* belt colors - keep original pastel vibe */
-    --pink:     #FFB7C5;
-    --pink-lt:  #FFE4EC;
-    --pink-dk:  #F28BA0;
-    --mint:     #B5EAD7;
-    --peach:    #FFDAC1;
-    --lavender: #C9C1F5;
-    --lav-dk:   #9B8FE8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -37,7 +27,6 @@
     overflow: hidden; position: relative;
   }
 
-  /* ─── Conveyor Belt ─── */
   .belt { position: fixed; left: 0; right: 0; z-index: 1; }
   .belt-bar {
     height: 44px;
@@ -50,31 +39,17 @@
   .belt.bottom { bottom: 0; }
   .belt-rail {
     height: 8px;
-    background: repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,.5) 0px, rgba(255,255,255,.5) 16px,
-      transparent 16px, transparent 24px
-    );
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,.5) 0px, rgba(255,255,255,.5) 16px, transparent 16px, transparent 24px);
     margin-top: -24px;
   }
   .belt.bottom .belt-rail { margin-top: 16px; }
-
-  /* Sushiro logo text on belt */
   .belt-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-size: .65rem;
-    font-weight: 700;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    opacity: .7;
-    white-space: nowrap;
+    color: white; font-size: .65rem; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase; opacity: .7; white-space: nowrap;
   }
 
-  /* ─── Bubbles ─── */
   .bubble {
     position: fixed; border-radius: 50%; opacity: .08;
     pointer-events: none; z-index: 0;
@@ -85,13 +60,9 @@
     to   { transform: translateY(-20px) scale(1.05); }
   }
 
-  /* ─── Floating sushi ─── */
   .floaters { position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
   .floater {
-    position: absolute;
-    animation: glide linear infinite;
-    opacity: 0;
-    user-select: none;
+    position: absolute; animation: glide linear infinite; opacity: 0; user-select: none;
   }
   @keyframes glide {
     0%   { transform: translateX(-80px); opacity: 0; }
@@ -100,18 +71,12 @@
     100% { transform: translateX(calc(100vw + 80px)); opacity: 0; }
   }
 
-  /* ─── Card ─── */
   .card {
     position: relative; z-index: 10;
     background: rgba(255,255,255,.96);
     backdrop-filter: blur(16px);
-    border-radius: 28px;
-    padding: 44px 38px 40px;
-    max-width: 390px; width: 90%;
-    box-shadow:
-      0 14px 44px rgba(232,0,45,.12),
-      0 2px 8px rgba(232,0,45,.06),
-      inset 0 1px 0 rgba(255,255,255,.95);
+    border-radius: 28px; padding: 44px 38px 40px; max-width: 390px; width: 90%;
+    box-shadow: 0 14px 44px rgba(232,0,45,.12), 0 2px 8px rgba(232,0,45,.06), inset 0 1px 0 rgba(255,255,255,.95);
     text-align: center;
     animation: popIn .6s cubic-bezier(.34,1.56,.64,1) both;
     border-top: 4px solid var(--red);
@@ -121,27 +86,17 @@
     to   { opacity: 1; transform: scale(1) translateY(0); }
   }
 
-  /* Sushiro logo mark inside card */
-  .brand-mark {
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    margin-bottom: 18px;
-  }
+  .brand-mark { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 18px; }
   .brand-circle {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--red);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
+    width: 36px; height: 36px; border-radius: 50%; background: var(--red);
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
   }
-  .brand-name {
-    font-size: .78rem; font-weight: 700; letter-spacing: .14em;
-    color: var(--red); text-transform: uppercase;
-  }
+  .brand-name { font-size: .78rem; font-weight: 700; letter-spacing: .14em; color: var(--red); text-transform: uppercase; }
 
   .icon-wrap {
     width: 96px; height: 96px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 3rem;
-    margin: 0 auto 20px;
+    font-size: 3rem; margin: 0 auto 20px;
     animation: wobble 2.6s ease-in-out infinite;
   }
   @keyframes wobble {
@@ -149,96 +104,63 @@
     50%      { transform: rotate(5deg) scale(1.06); }
   }
 
-  /* LOADING */
-  .loading .icon-wrap { background: var(--red-lt); border: 3px solid var(--red); }
-  .loading .badge     { background: var(--red-lt); color: var(--red); }
-
-  /* SUCCESS */
-  .success .icon-wrap { background: var(--red-lt); border: 3px solid var(--red); }
-  .success .badge     { background: var(--red); color: #fff; }
-
-  /* DUPLICATE */
+  .loading .icon-wrap   { background: var(--red-lt); border: 3px solid var(--red); }
+  .loading .badge       { background: var(--red-lt); color: var(--red); }
+  .success .icon-wrap   { background: var(--red-lt); border: 3px solid var(--red); }
+  .success .badge       { background: var(--red); color: #fff; }
   .duplicate .icon-wrap { background: var(--gray-lt); border: 3px solid var(--gray); }
   .duplicate .badge     { background: var(--text); color: #fff; }
 
   .badge {
-    display: inline-block;
-    padding: 5px 18px; border-radius: 99px;
-    font-size: .74rem; font-weight: 700; letter-spacing: .06em;
-    margin-bottom: 18px;
+    display: inline-block; padding: 5px 18px; border-radius: 99px;
+    font-size: .74rem; font-weight: 700; letter-spacing: .06em; margin-bottom: 18px;
   }
-  .title {
-    font-size: 1.42rem; font-weight: 700;
-    color: var(--text); line-height: 1.3; margin-bottom: 8px;
-  }
-  .subtitle {
-    color: var(--text-lt); font-size: .9rem;
-    line-height: 1.7; margin-bottom: 16px;
-  }
-
+  .title { font-size: 1.42rem; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 8px; }
+  .subtitle { color: var(--text-lt); font-size: .9rem; line-height: 1.7; margin-bottom: 16px; }
   .table-chip {
     display: inline-flex; align-items: center; gap: 6px;
     background: var(--red-lt); color: var(--red-dk);
-    border-radius: 99px; padding: 5px 18px;
-    font-size: .82rem; font-weight: 700; margin-bottom: 18px;
+    border-radius: 99px; padding: 5px 18px; font-size: .82rem; font-weight: 700; margin-bottom: 18px;
     border: 1.5px solid rgba(232,0,45,.2);
   }
 
-  /* ─── Coupon ─── */
   .coupon {
-    background: var(--white);
-    border: 2.5px dashed var(--red);
+    background: var(--white); border: 2.5px dashed var(--red);
     border-radius: 18px; padding: 18px 22px; margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
   .coupon::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: repeating-linear-gradient(90deg, var(--red) 0 8px, transparent 8px 14px);
-    opacity: .4;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: repeating-linear-gradient(90deg, var(--red) 0 8px, transparent 8px 14px); opacity: .4;
   }
-  .coupon-inner {
-    display: flex; align-items: center; gap: 14px; text-align: left;
-  }
+  .coupon-inner { display: flex; align-items: center; gap: 14px; text-align: left; }
   .coupon-icon {
-    width: 52px; height: 52px; flex-shrink: 0;
-    background: var(--red-lt); border-radius: 50%;
+    width: 52px; height: 52px; flex-shrink: 0; background: var(--red-lt); border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem;
-    border: 2px solid rgba(232,0,45,.2);
+    font-size: 1.6rem; border: 2px solid rgba(232,0,45,.2);
   }
   .coupon-body { flex: 1; }
-  .coupon-label {
-    font-size: .62rem; font-weight: 700; letter-spacing: .12em;
-    color: var(--text-lt); text-transform: uppercase; margin-bottom: 2px;
-  }
+  .coupon-label { font-size: .62rem; font-weight: 700; letter-spacing: .12em; color: var(--text-lt); text-transform: uppercase; margin-bottom: 2px; }
   .coupon-amount { font-size: 2.4rem; font-weight: 700; color: var(--red); line-height: 1; }
   .coupon-unit   { font-size: .88rem; font-weight: 700; color: var(--red); }
   .coupon-note   { font-size: .75rem; color: var(--text-lt); margin-top: 5px; line-height: 1.55; }
-
   .divider { border: none; border-top: 1.5px dashed var(--gray); margin: 18px 0; }
 
-  /* Spinner */
   .spinner {
     width: 38px; height: 38px; margin: 8px auto 0;
-    border: 4px solid var(--red-lt);
-    border-top-color: var(--red);
-    border-radius: 50%;
-    animation: spin .8s linear infinite;
+    border: 4px solid var(--red-lt); border-top-color: var(--red);
+    border-radius: 50%; animation: spin .8s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
   footer {
-    position: fixed; bottom: 54px; left: 0; right: 0;
-    text-align: center; z-index: 10;
+    position: fixed; bottom: 54px; left: 0; right: 0; text-align: center; z-index: 10;
     font-size: .68rem; color: rgba(0,0,0,.3); letter-spacing: .06em;
   }
 </style>
 </head>
 <body>
 
-<!-- Belts — same structure, now red Sushiro style -->
 <div class="belt top">
   <div class="belt-bar"><span class="belt-logo">🍣 Sushiro · スシロー · Sushiro · スシロー 🍣</span></div>
   <div class="belt-rail"></div>
@@ -248,16 +170,13 @@
   <div class="belt-bar"><span class="belt-logo">🍣 Sushiro · スシロー · Sushiro · スシロー 🍣</span></div>
 </div>
 
-<!-- Bubbles — red tones -->
 <div class="bubble" style="width:220px;height:220px;background:var(--red);top:-80px;left:-60px;animation-duration:5s;"></div>
 <div class="bubble" style="width:150px;height:150px;background:var(--red);bottom:50px;right:-30px;animation-duration:6s;animation-delay:-2s;"></div>
 <div class="bubble" style="width:110px;height:110px;background:var(--red);top:38%;left:4%;animation-duration:7s;animation-delay:-1s;"></div>
 <div class="bubble" style="width:80px;height:80px;background:var(--red);top:18%;right:6%;animation-duration:4.5s;"></div>
 
-<!-- Floating sushi (same as original) -->
 <div class="floaters" id="floaters"></div>
 
-<!-- Card -->
 <div class="card loading" id="card">
   <div class="brand-mark">
     <div class="brand-circle">🍣</div>
@@ -273,9 +192,8 @@
 <footer>🍱 Thank you for dining with us · スシロー 🍱</footer>
 
 <script>
-const GAS_URL = "https://script.google.com/macros/s/AKfycbznP-A_sIDGh_4Z_5KODzvwvf1eVcKXyDMiEz25-cRN13qgXC4X_C3gLklhWQ0gCyM/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbyp-RUxGGblMCtOxcmd7tKMtQjWLp4FIjdnbO1X8L6vK8aNR08tDMKKQmgL7zZPH68/exec";
 
-// ── Floating sushi ──────────────────────────────
 const EMOJIS = ["🍣","🍱","🦐","🥢","🍙","🍤","🐟","🥑","🍚","🫙","🍘"];
 const wrap   = document.getElementById("floaters");
 function spawnFloater() {
@@ -293,7 +211,6 @@ function spawnFloater() {
 for (let i = 0; i < 14; i++) spawnFloater();
 setInterval(spawnFloater, 1600);
 
-// ── Render card ─────────────────────────────────
 function showSuccess(tableNo) {
   document.getElementById("card").className = "card success";
   document.getElementById("card").innerHTML = `
@@ -333,40 +250,40 @@ function showDuplicate(tableNo) {
     <div class="table-chip" style="background:#f0f0f0;color:#555;border-color:#ccc;">🪑 Table no. <strong>${tableNo}</strong></div>`;
 }
 
-// ── Main ─────────────────────────────────────────
+// ── Main ────────────────────────────────────────
 const params       = new URLSearchParams(window.location.search);
 const submissionId = params.get("submissionId") || "";
 const tableNo      = params.get("tableNo")      || "?";
 
-// ถ้าไม่มี submissionId แสดง success ทันทีโดยไม่รอ API
-if (!submissionId) {
-  showSuccess(tableNo);
-} else {
-  (async () => {
-    // timeout 8 วินาที — ถ้า GAS ช้าเกิน fallback ทันที
-    const timeout = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error("timeout")), 8000)
-    );
-    try {
-      const url = new URL(GAS_URL);
-      url.searchParams.set("submissionId", submissionId);
-      url.searchParams.set("tableNo",      tableNo);
+(async () => {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 10000);
 
-      const res  = await Promise.race([fetch(url.toString()), timeout]);
-      const data = await res.json();
+  try {
+    const url = new URL(GAS_URL);
+    url.searchParams.set("submissionId", submissionId);
+    url.searchParams.set("tableNo",      tableNo);
 
-      if (data.duplicate) {
-        showDuplicate(data.tableNo || tableNo);
-      } else {
-        showSuccess(data.tableNo || tableNo);
-      }
-    } catch (err) {
-      // API error หรือ timeout → แสดง success ด้วย tableNo จาก URL
-      console.warn("GAS API:", err.message);
-      showSuccess(tableNo);
+    // ✅ redirect: "follow" — GAS redirect ก่อนตอบ ต้องใส่ไม่งั้น browser block
+    const res  = await fetch(url.toString(), {
+      redirect: "follow",
+      signal: controller.signal
+    });
+    clearTimeout(timer);
+
+    const data = JSON.parse(await res.text());
+
+    if (data.duplicate) {
+      showDuplicate(data.tableNo || tableNo);
+    } else {
+      showSuccess(data.tableNo || tableNo);
     }
-  })();
-}
+  } catch (err) {
+    clearTimeout(timer);
+    console.warn("GAS API:", err.message);
+    showSuccess(tableNo); // fallback
+  }
+})();
 </script>
 </body>
 </html>
